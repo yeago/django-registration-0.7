@@ -115,7 +115,7 @@ class RegistrationManager(models.Manager):
             current_site = Site.objects.get_current()
             
             subject = render_to_string('registration/activation_email_subject.txt',
-                                       { 'site': current_site })
+                                       { 'site': current_site, 'user': new_user })
             # Email subject *must not* contain newlines
             subject = ''.join(subject.splitlines())
             
